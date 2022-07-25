@@ -99,10 +99,8 @@ void rp2040_custom_run(RP2040* rp2040, pax_buf_t* pax_buffer, ILI9341* ili9341) 
 
     if (expected_crc == actual_crc) {
         display_rp2040_custom_log(pax_buffer, ili9341, "Checking Firmware", "Checksum OK");
-        vTaskDelay(500 / portTICK_PERIOD_MS);
     } else {
         display_rp2040_custom_log(pax_buffer, ili9341, "Flashing Firmware", "Erasing...");
-        vTaskDelay(500 / portTICK_PERIOD_MS);
 
         uint32_t firmware_size_erase = firmware_size + erase_size - (firmware_size % erase_size);
         if (!rp2040_bl_erase(RP2040_CUSTOM_ADDR, firmware_size_erase)) {

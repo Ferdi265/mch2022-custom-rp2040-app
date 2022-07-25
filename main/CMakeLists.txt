@@ -6,6 +6,10 @@
 idf_component_register(
     SRCS
         "main.c"
+        "rp2040_custom.c"
     INCLUDE_DIRS
         "." "include"
+    EMBED_FILES
+        ${project_dir}/resources/rpi_logo.png
+        ${project_dir}/resources/rp2040_custom.bin
 )
